@@ -26,7 +26,7 @@ module fifo_regs_no_flags #(
     reg [$clog2(g_DEPTH)-1:0] r_RD_INDEX = 0;
 
     // FIFO count
-    reg signed [31:0] r_FIFO_COUNT = 0;
+    reg [$clog2(g_DEPTH):0] r_FIFO_COUNT = 0;
 
     // Full and empty flags
     wire w_FULL;
@@ -34,7 +34,8 @@ module fifo_regs_no_flags #(
 
     // Write logic
     always @(posedge i_clk) begin
-        if (i_rst_sync) begin
+        if (i_rst_sync)
+        begin
             r_FIFO_COUNT <= 0;
             r_WR_INDEX <= 0;
             r_RD_INDEX <= 0;
