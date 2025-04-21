@@ -1,3 +1,4 @@
+// Example 3
 // Generated register-based fifo
 // based on: https://nandland.com/register-based-fifo/
 module fifo_regs_no_flags #(
